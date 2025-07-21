@@ -1,0 +1,36 @@
+{
+  "name": "laravel-workspace-generator",
+  "displayName": "Laravel Workspace Generator",
+  "description": "Generate Laravel project workspace configuration",
+  "version": "1.0.0",
+  "engines": {
+    "vscode": "^1.60.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onCommand:laravel-workspace.generateConfig"
+  ],
+  "main": "./extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "laravel-workspace.generateConfig",
+        "title": "Generate Laravel Workspace Config"
+      }
+    ],
+    "menus": {
+      "explorer/context": [
+        {
+          "when": "explorerResourceIsFolder",
+          "command": "laravel-workspace.generateConfig",
+          "group": "navigation"
+        }
+      ]
+    }
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.60.0"
+  }
+}

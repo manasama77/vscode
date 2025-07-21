@@ -140,18 +140,59 @@ Ctrl+Shift+C  # Clear all cache
 
 ## 🚀 Next Steps
 
-### 1. Untuk Project Baru
+### 1. Global Setup (Sekali Setup, Berlaku Untuk Semua Project)
+
+**Jalankan script global setup:**
+
+```powershell
+# Di PowerShell Administrator
+.\install-global.ps1
+```
+
+**Hasil:**
+
+- ✅ Snippets tersedia di semua project Laravel
+- ✅ Settings Laravel otomatis terapply
+- ✅ Extensions terinstall global
+- ✅ Template generator tersedia
+
+### 2. Quick Setup untuk Project Baru
+
+**Option A: Menggunakan VS Code Extension (Recommended)**
+
+1. Install extension Laravel Workspace Generator
+2. Right-click pada folder project → "Generate Laravel Workspace Config"
+3. Selesai! ✅
+
+**Option B: Menggunakan PowerShell**
+
+```powershell
+# Template generator (sudah terinstall dari global setup)
+powershell "$env:APPDATA\Code\User\laravel-template-generator.ps1" -ProjectPath "C:\path\to\project"
+```
+
+**Option C: Manual Quick Setup**
+
+```bash
+# Linux/Mac
+./quick-setup.sh /path/to/project
+
+# Windows
+.\quick-setup.ps1 "C:\path\to\project"
+```
+
+### 3. Untuk Project Existing Laravel
 
 1. Copy file example dan rename (hilangkan .example)
 2. Install dependencies sesuai stack yang dipilih
 3. Configure database dan .env file
 4. Run migrations dan seeders
 
-### 2. Customize Settings
+### 4. Customize Settings
 
-- Edit `.vscode/settings.json` sesuai preferensi
-- Tambah snippets di `.vscode/snippets/`
-- Modify keybindings di `.vscode/keybindings.json`
+- Edit `.vscode/settings.json` sesuai preferensi project spesifik
+- Global snippets sudah tersedia, tambah custom di `.vscode/snippets/`
+- Modify keybindings di `.vscode/keybindings.json` untuk project spesifik
 
 ### 3. Recommended Workflow
 
@@ -162,6 +203,20 @@ Ctrl+Shift+C  # Clear all cache
 5. Format code: `Shift+Alt+F`
 
 ## 💡 Tips & Tricks
+
+### Global Setup Benefits
+
+- ✅ Snippets tersedia di semua project Laravel tanpa setup manual
+- ✅ Settings Laravel otomatis terapply di project baru
+- ✅ Extensions yang diperlukan sudah terinstall
+- ✅ Quick project generator untuk struktur .vscode
+
+### Workflow untuk Project Baru
+
+1. **Create Laravel project**: `composer create-project laravel/laravel project-name`
+2. **Generate VS Code config**: Right-click folder → "Generate Laravel Workspace Config"
+3. **Start development**: `Ctrl+Shift+S` (Laravel serve), `Ctrl+Shift+V` (Vite)
+4. **Use snippets**: Type `route`, `controller`, `model`, dll
 
 ### Productivity Tips
 
