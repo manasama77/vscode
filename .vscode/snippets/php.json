@@ -1,0 +1,295 @@
+{
+    "Laravel Route": {
+        "prefix": "route",
+        "body": [
+            "Route::${1|get,post,put,patch,delete|}('${2:path}', [${3:Controller}::class, '${4:method}'])->name('${5:name}');"
+        ],
+        "description": "Create a Laravel route"
+    },
+
+    "Laravel Controller": {
+        "prefix": "controller",
+        "body": [
+            "<?php",
+            "",
+            "namespace App\\Http\\Controllers;",
+            "",
+            "use Illuminate\\Http\\Request;",
+            "",
+            "class ${1:ControllerName} extends Controller",
+            "{",
+            "    public function ${2:index}()",
+            "    {",
+            "        ${3://}",
+            "    }",
+            "}"
+        ],
+        "description": "Create a Laravel controller"
+    },
+
+    "Laravel Model": {
+        "prefix": "model",
+        "body": [
+            "<?php",
+            "",
+            "namespace App\\Models;",
+            "",
+            "use Illuminate\\Database\\Eloquent\\Factories\\HasFactory;",
+            "use Illuminate\\Database\\Eloquent\\Model;",
+            "",
+            "class ${1:ModelName} extends Model",
+            "{",
+            "    use HasFactory;",
+            "",
+            "    protected \\$fillable = [",
+            "        ${2:'field1', 'field2'}",
+            "    ];",
+            "",
+            "    protected \\$casts = [",
+            "        ${3:'field' => 'datatype'}",
+            "    ];",
+            "}"
+        ],
+        "description": "Create a Laravel model"
+    },
+
+    "Laravel Migration": {
+        "prefix": "migration",
+        "body": [
+            "<?php",
+            "",
+            "use Illuminate\\Database\\Migrations\\Migration;",
+            "use Illuminate\\Database\\Schema\\Blueprint;",
+            "use Illuminate\\Support\\Facades\\Schema;",
+            "",
+            "return new class extends Migration",
+            "{",
+            "    public function up(): void",
+            "    {",
+            "        Schema::create('${1:table_name}', function (Blueprint \\$table) {",
+            "            \\$table->id();",
+            "            ${2:\\$table->string('name');}",
+            "            \\$table->timestamps();",
+            "        });",
+            "    }",
+            "",
+            "    public function down(): void",
+            "    {",
+            "        Schema::dropIfExists('${1:table_name}');",
+            "    }",
+            "};"
+        ],
+        "description": "Create a Laravel migration"
+    },
+
+    "Laravel Middleware": {
+        "prefix": "middleware",
+        "body": [
+            "<?php",
+            "",
+            "namespace App\\Http\\Middleware;",
+            "",
+            "use Closure;",
+            "use Illuminate\\Http\\Request;",
+            "use Symfony\\Component\\HttpFoundation\\Response;",
+            "",
+            "class ${1:MiddlewareName}",
+            "{",
+            "    public function handle(Request \\$request, Closure \\$next): Response",
+            "    {",
+            "        ${2://}",
+            "",
+            "        return \\$next(\\$request);",
+            "    }",
+            "}"
+        ],
+        "description": "Create a Laravel middleware"
+    },
+
+    "Laravel Request": {
+        "prefix": "request",
+        "body": [
+            "<?php",
+            "",
+            "namespace App\\Http\\Requests;",
+            "",
+            "use Illuminate\\Foundation\\Http\\FormRequest;",
+            "",
+            "class ${1:RequestName} extends FormRequest",
+            "{",
+            "    public function authorize(): bool",
+            "    {",
+            "        return ${2:true};",
+            "    }",
+            "",
+            "    public function rules(): array",
+            "    {",
+            "        return [",
+            "            ${3:'field' => 'required|string|max:255'}",
+            "        ];",
+            "    }",
+            "}"
+        ],
+        "description": "Create a Laravel form request"
+    },
+
+    "Laravel Resource": {
+        "prefix": "resource",
+        "body": [
+            "<?php",
+            "",
+            "namespace App\\Http\\Resources;",
+            "",
+            "use Illuminate\\Http\\Request;",
+            "use Illuminate\\Http\\Resources\\Json\\JsonResource;",
+            "",
+            "class ${1:ResourceName} extends JsonResource",
+            "{",
+            "    public function toArray(Request \\$request): array",
+            "    {",
+            "        return [",
+            "            'id' => \\$this->id,",
+            "            ${2:'field' => \\$this->field,}",
+            "            'created_at' => \\$this->created_at,",
+            "            'updated_at' => \\$this->updated_at,",
+            "        ];",
+            "    }",
+            "}"
+        ],
+        "description": "Create a Laravel API resource"
+    },
+
+    "Laravel Factory": {
+        "prefix": "factory",
+        "body": [
+            "<?php",
+            "",
+            "namespace Database\\Factories;",
+            "",
+            "use Illuminate\\Database\\Eloquent\\Factories\\Factory;",
+            "",
+            "class ${1:ModelName}Factory extends Factory",
+            "{",
+            "    public function definition(): array",
+            "    {",
+            "        return [",
+            "            ${2:'field' => \\$this->faker->word(),}",
+            "        ];",
+            "    }",
+            "}"
+        ],
+        "description": "Create a Laravel model factory"
+    },
+
+    "Laravel Seeder": {
+        "prefix": "seeder",
+        "body": [
+            "<?php",
+            "",
+            "namespace Database\\Seeders;",
+            "",
+            "use Illuminate\\Database\\Seeder;",
+            "",
+            "class ${1:SeederName} extends Seeder",
+            "{",
+            "    public function run(): void",
+            "    {",
+            "        ${2://}",
+            "    }",
+            "}"
+        ],
+        "description": "Create a Laravel seeder"
+    },
+
+    "Laravel Job": {
+        "prefix": "job",
+        "body": [
+            "<?php",
+            "",
+            "namespace App\\Jobs;",
+            "",
+            "use Illuminate\\Bus\\Queueable;",
+            "use Illuminate\\Contracts\\Queue\\ShouldQueue;",
+            "use Illuminate\\Foundation\\Bus\\Dispatchable;",
+            "use Illuminate\\Queue\\InteractsWithQueue;",
+            "use Illuminate\\Queue\\SerializesModels;",
+            "",
+            "class ${1:JobName} implements ShouldQueue",
+            "{",
+            "    use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;",
+            "",
+            "    public function __construct()",
+            "    {",
+            "        ${2://}",
+            "    }",
+            "",
+            "    public function handle(): void",
+            "    {",
+            "        ${3://}",
+            "    }",
+            "}"
+        ],
+        "description": "Create a Laravel job"
+    },
+
+    "Laravel Event": {
+        "prefix": "event",
+        "body": [
+            "<?php",
+            "",
+            "namespace App\\Events;",
+            "",
+            "use Illuminate\\Broadcasting\\Channel;",
+            "use Illuminate\\Broadcasting\\InteractsWithSockets;",
+            "use Illuminate\\Broadcasting\\PresenceChannel;",
+            "use Illuminate\\Broadcasting\\PrivateChannel;",
+            "use Illuminate\\Contracts\\Broadcasting\\ShouldBroadcast;",
+            "use Illuminate\\Foundation\\Events\\Dispatchable;",
+            "use Illuminate\\Queue\\SerializesModels;",
+            "",
+            "class ${1:EventName}",
+            "{",
+            "    use Dispatchable, InteractsWithSockets, SerializesModels;",
+            "",
+            "    public function __construct()",
+            "    {",
+            "        ${2://}",
+            "    }",
+            "",
+            "    public function broadcastOn(): array",
+            "    {",
+            "        return [",
+            "            new PrivateChannel('channel-name'),",
+            "        ];",
+            "    }",
+            "}"
+        ],
+        "description": "Create a Laravel event"
+    },
+
+    "Laravel Listener": {
+        "prefix": "listener",
+        "body": [
+            "<?php",
+            "",
+            "namespace App\\Listeners;",
+            "",
+            "use Illuminate\\Contracts\\Queue\\ShouldQueue;",
+            "use Illuminate\\Queue\\InteractsWithQueue;",
+            "",
+            "class ${1:ListenerName}",
+            "{",
+            "    public function __construct()",
+            "    {",
+            "        ${2://}",
+            "    }",
+            "",
+            "    public function handle(object \\$event): void",
+            "    {",
+            "        ${3://}",
+            "    }",
+            "}"
+        ],
+        "description": "Create a Laravel listener"
+    }
+}

@@ -1,0 +1,293 @@
+{
+    "Blade Layout": {
+        "prefix": "layout",
+        "body": [
+            "<!DOCTYPE html>",
+            "<html lang=\"{{ str_replace('_', '-', app()->getLocale()) }}\">",
+            "<head>",
+            "    <meta charset=\"utf-8\">",
+            "    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">",
+            "    <meta name=\"csrf-token\" content=\"{{ csrf_token() }}\">",
+            "",
+            "    <title>{{ config('app.name', 'Laravel') }}</title>",
+            "",
+            "    <!-- Fonts -->",
+            "    <link rel=\"preconnect\" href=\"https://fonts.bunny.net\">",
+            "    <link href=\"https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap\" rel=\"stylesheet\" />",
+            "",
+            "    <!-- Scripts -->",
+            "    @vite(['resources/css/app.css', 'resources/js/app.js'])",
+            "</head>",
+            "<body class=\"font-sans antialiased\">",
+            "    <div class=\"min-h-screen bg-gray-100\">",
+            "        @yield('content')",
+            "    </div>",
+            "</body>",
+            "</html>"
+        ],
+        "description": "Create a Blade layout template"
+    },
+
+    "Blade Extend": {
+        "prefix": "extend",
+        "body": [
+            "@extends('${1:layouts.app}')",
+            "",
+            "@section('${2:content}')",
+            "    ${3:<!-- Content here -->}",
+            "@endsection"
+        ],
+        "description": "Extend a Blade layout"
+    },
+
+    "Blade Section": {
+        "prefix": "section",
+        "body": [
+            "@section('${1:name}')",
+            "    ${2:<!-- Content here -->}",
+            "@endsection"
+        ],
+        "description": "Create a Blade section"
+    },
+
+    "Blade Include": {
+        "prefix": "include",
+        "body": [
+            "@include('${1:view.name}', [${2:'key' => 'value'}])"
+        ],
+        "description": "Include a Blade partial"
+    },
+
+    "Blade Component": {
+        "prefix": "component",
+        "body": [
+            "<x-${1:component-name} ${2::attribute=\"value\"}>",
+            "    ${3:<!-- Content here -->}",
+            "</x-${1:component-name}>"
+        ],
+        "description": "Create a Blade component"
+    },
+
+    "Blade If Statement": {
+        "prefix": "if",
+        "body": [
+            "@if(${1:condition})",
+            "    ${2:<!-- Content here -->}",
+            "@endif"
+        ],
+        "description": "Create a Blade if statement"
+    },
+
+    "Blade If-Else Statement": {
+        "prefix": "ifelse",
+        "body": [
+            "@if(${1:condition})",
+            "    ${2:<!-- True content -->}",
+            "@else",
+            "    ${3:<!-- False content -->}",
+            "@endif"
+        ],
+        "description": "Create a Blade if-else statement"
+    },
+
+    "Blade Unless": {
+        "prefix": "unless",
+        "body": [
+            "@unless(${1:condition})",
+            "    ${2:<!-- Content here -->}",
+            "@endunless"
+        ],
+        "description": "Create a Blade unless statement"
+    },
+
+    "Blade Foreach Loop": {
+        "prefix": "foreach",
+        "body": [
+            "@foreach(${1:\\$items} as ${2:\\$item})",
+            "    ${3:<!-- Loop content -->}",
+            "@endforeach"
+        ],
+        "description": "Create a Blade foreach loop"
+    },
+
+    "Blade For Loop": {
+        "prefix": "for",
+        "body": [
+            "@for(${1:\\$i = 0}; ${2:\\$i < 10}; ${3:\\$i++})",
+            "    ${4:<!-- Loop content -->}",
+            "@endfor"
+        ],
+        "description": "Create a Blade for loop"
+    },
+
+    "Blade Forelse": {
+        "prefix": "forelse",
+        "body": [
+            "@forelse(${1:\\$items} as ${2:\\$item})",
+            "    ${3:<!-- Loop content -->}",
+            "@empty",
+            "    ${4:<!-- Empty content -->}",
+            "@endforelse"
+        ],
+        "description": "Create a Blade forelse loop"
+    },
+
+    "Blade Auth Check": {
+        "prefix": "auth",
+        "body": [
+            "@auth",
+            "    ${1:<!-- Authenticated content -->}",
+            "@endauth"
+        ],
+        "description": "Check if user is authenticated"
+    },
+
+    "Blade Guest Check": {
+        "prefix": "guest",
+        "body": [
+            "@guest",
+            "    ${1:<!-- Guest content -->}",
+            "@endguest"
+        ],
+        "description": "Check if user is guest"
+    },
+
+    "Blade CSRF Token": {
+        "prefix": "csrf",
+        "body": [
+            "@csrf"
+        ],
+        "description": "Add CSRF token field"
+    },
+
+    "Blade Method Field": {
+        "prefix": "method",
+        "body": [
+            "@method('${1|PUT,PATCH,DELETE|}')"
+        ],
+        "description": "Add method field for forms"
+    },
+
+    "Blade Form": {
+        "prefix": "form",
+        "body": [
+            "<form action=\"${1:route}\" method=\"${2|GET,POST|}\">",
+            "    @csrf",
+            "    ${3:@method('${4|PUT,PATCH,DELETE|}')}",
+            "    ",
+            "    ${5:<!-- Form fields here -->}",
+            "    ",
+            "    <button type=\"submit\" class=\"${6:btn btn-primary}\">",
+            "        ${7:Submit}",
+            "    </button>",
+            "</form>"
+        ],
+        "description": "Create a Blade form"
+    },
+
+    "Blade Error Handling": {
+        "prefix": "error",
+        "body": [
+            "@error('${1:field}')",
+            "    <div class=\"${2:alert alert-danger}\">{{ \\$message }}</div>",
+            "@enderror"
+        ],
+        "description": "Handle field errors"
+    },
+
+    "Blade Old Value": {
+        "prefix": "old",
+        "body": [
+            "{{ old('${1:field}', ${2:\\$default}) }}"
+        ],
+        "description": "Get old input value"
+    },
+
+    "Blade Route": {
+        "prefix": "route",
+        "body": [
+            "{{ route('${1:name}', ${2:[\\$parameters]}) }}"
+        ],
+        "description": "Generate route URL"
+    },
+
+    "Blade Asset": {
+        "prefix": "asset",
+        "body": [
+            "{{ asset('${1:path}') }}"
+        ],
+        "description": "Generate asset URL"
+    },
+
+    "Blade URL": {
+        "prefix": "url",
+        "body": [
+            "{{ url('${1:path}') }}"
+        ],
+        "description": "Generate URL"
+    },
+
+    "Blade Config": {
+        "prefix": "config",
+        "body": [
+            "{{ config('${1:key}', '${2:default}') }}"
+        ],
+        "description": "Get config value"
+    },
+
+    "Blade Session": {
+        "prefix": "session",
+        "body": [
+            "@session('${1:key}')",
+            "    ${2:<!-- Session content -->}",
+            "@endsession"
+        ],
+        "description": "Check session data"
+    },
+
+    "Blade Vite": {
+        "prefix": "vite",
+        "body": [
+            "@vite(['${1:resources/css/app.css}', '${2:resources/js/app.js}'])"
+        ],
+        "description": "Include Vite assets"
+    },
+
+    "Blade Stack": {
+        "prefix": "stack",
+        "body": [
+            "@stack('${1:scripts}')"
+        ],
+        "description": "Create a Blade stack"
+    },
+
+    "Blade Push": {
+        "prefix": "push",
+        "body": [
+            "@push('${1:scripts}')",
+            "    ${2:<!-- Content to push -->}",
+            "@endpush"
+        ],
+        "description": "Push content to stack"
+    },
+
+    "Blade Once": {
+        "prefix": "once",
+        "body": [
+            "@once",
+            "    ${1:<!-- Content that should only appear once -->}",
+            "@endonce"
+        ],
+        "description": "Render content only once"
+    },
+
+    "Blade Verbatim": {
+        "prefix": "verbatim",
+        "body": [
+            "@verbatim",
+            "    ${1:<!-- Raw content (not parsed by Blade) -->}",
+            "@endverbatim"
+        ],
+        "description": "Display raw content"
+    }
+}

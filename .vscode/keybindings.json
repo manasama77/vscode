@@ -1,0 +1,151 @@
+[
+    // Laravel Artisan Commands
+    {
+        "key": "ctrl+shift+a",
+        "command": "laravel_artisan.list"
+    },
+
+    // Quick Laravel Serve
+    {
+        "key": "ctrl+shift+s",
+        "command": "workbench.action.tasks.runTask",
+        "args": "Laravel: Serve"
+    },
+
+    // Quick Vite Dev
+    {
+        "key": "ctrl+shift+v",
+        "command": "workbench.action.tasks.runTask",
+        "args": "Vite: Dev Server"
+    },
+
+    // Laravel Migrate
+    {
+        "key": "ctrl+shift+m",
+        "command": "workbench.action.tasks.runTask",
+        "args": "Laravel: Migrate"
+    },
+
+    // Clear All Cache
+    {
+        "key": "ctrl+shift+c",
+        "command": "workbench.action.tasks.runTask",
+        "args": "Laravel: Clear All Cache"
+    },
+
+    // Go to View (Laravel)
+    {
+        "key": "ctrl+shift+g",
+        "command": "laravel-goto-view.gotoView"
+    },
+
+    // Format Document
+    {
+        "key": "shift+alt+f",
+        "command": "editor.action.formatDocument",
+        "when": "editorHasDocumentFormattingProvider && editorTextFocus && !editorReadonly && !inCompositeEditor"
+    },
+
+    // Toggle Terminal
+    {
+        "key": "ctrl+`",
+        "command": "workbench.action.terminal.toggleTerminal"
+    },
+
+    // Create New Terminal
+    {
+        "key": "ctrl+shift+`",
+        "command": "workbench.action.terminal.new"
+    },
+
+    // Quick Open File
+    {
+        "key": "ctrl+p",
+        "command": "workbench.action.quickOpen"
+    },
+
+    // Command Palette
+    {
+        "key": "ctrl+shift+p",
+        "command": "workbench.action.showCommands"
+    },
+
+    // Go to Symbol
+    {
+        "key": "ctrl+shift+o",
+        "command": "workbench.action.gotoSymbol"
+    },
+
+    // Go to Definition
+    {
+        "key": "f12",
+        "command": "editor.action.revealDefinition",
+        "when": "editorHasDefinitionProvider && editorTextFocus"
+    },
+
+    // Peek Definition
+    {
+        "key": "alt+f12",
+        "command": "editor.action.peekDefinition",
+        "when": "editorHasDefinitionProvider && editorTextFocus"
+    },
+
+    // Find References
+    {
+        "key": "shift+f12",
+        "command": "references-view.findReferences",
+        "when": "editorHasReferenceProvider && editorTextFocus"
+    },
+
+    // Multi-cursor selection
+    {
+        "key": "ctrl+d",
+        "command": "editor.action.addSelectionToNextFindMatch",
+        "when": "editorFocus"
+    },
+
+    // Select all occurrences
+    {
+        "key": "ctrl+shift+l",
+        "command": "editor.action.selectHighlights",
+        "when": "editorFocus"
+    },
+
+    // Move line up/down
+    {
+        "key": "alt+up",
+        "command": "editor.action.moveLinesUpAction",
+        "when": "editorTextFocus && !editorReadonly"
+    },
+    {
+        "key": "alt+down",
+        "command": "editor.action.moveLinesDownAction",
+        "when": "editorTextFocus && !editorReadonly"
+    },
+
+    // Copy line up/down
+    {
+        "key": "shift+alt+up",
+        "command": "editor.action.copyLinesUpAction",
+        "when": "editorTextFocus && !editorReadonly"
+    },
+    {
+        "key": "shift+alt+down",
+        "command": "editor.action.copyLinesDownAction",
+        "when": "editorTextFocus && !editorReadonly"
+    },
+
+    // Comment/Uncomment line
+    {
+        "key": "ctrl+/",
+        "command": "editor.action.commentLine",
+        "when": "editorTextFocus && !editorReadonly"
+    },
+
+    // Block comment
+    {
+        "key": "shift+alt+a",
+        "command": "editor.action.blockComment",
+        "when": "editorTextFocus && !editorReadonly"
+    }
+]

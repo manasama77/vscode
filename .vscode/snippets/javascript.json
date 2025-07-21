@@ -1,0 +1,342 @@
+{
+    "React Functional Component": {
+        "prefix": "rfc",
+        "body": [
+            "import React from 'react';",
+            "",
+            "interface ${1:ComponentName}Props {",
+            "  ${2:// props here}",
+            "}",
+            "",
+            "const ${1:ComponentName}: React.FC<${1:ComponentName}Props> = ({ ${3:props} }) => {",
+            "  return (",
+            "    <div>",
+            "      ${4:<!-- Component content -->}",
+            "    </div>",
+            "  );",
+            "};",
+            "",
+            "export default ${1:ComponentName};"
+        ],
+        "description": "Create a React functional component"
+    },
+
+    "Inertia Page Component": {
+        "prefix": "inertia",
+        "body": [
+            "import React from 'react';",
+            "import { Head } from '@inertiajs/react';",
+            "import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';",
+            "",
+            "interface ${1:PageName}Props {",
+            "  auth: {",
+            "    user: any;",
+            "  };",
+            "  ${2:// additional props}",
+            "}",
+            "",
+            "export default function ${1:PageName}({ auth, ${3:props} }: ${1:PageName}Props) {",
+            "  return (",
+            "    <AuthenticatedLayout",
+            "      user={auth.user}",
+            "      header={<h2 className=\"font-semibold text-xl text-gray-800 leading-tight\">${4:Page Title}</h2>}",
+            "    >",
+            "      <Head title=\"${4:Page Title}\" />",
+            "",
+            "      <div className=\"py-12\">",
+            "        <div className=\"max-w-7xl mx-auto sm:px-6 lg:px-8\">",
+            "          <div className=\"bg-white overflow-hidden shadow-sm sm:rounded-lg\">",
+            "            <div className=\"p-6 text-gray-900\">",
+            "              ${5:<!-- Page content -->}",
+            "            </div>",
+            "          </div>",
+            "        </div>",
+            "      </div>",
+            "    </AuthenticatedLayout>",
+            "  );",
+            "}"
+        ],
+        "description": "Create an Inertia.js page component"
+    },
+
+    "Inertia Form": {
+        "prefix": "inertiaform",
+        "body": [
+            "import { useForm } from '@inertiajs/react';",
+            "",
+            "const { data, setData, post, processing, errors, reset } = useForm({",
+            "  ${1:field}: '',",
+            "});",
+            "",
+            "const submit = (e: React.FormEvent) => {",
+            "  e.preventDefault();",
+            "  post(route('${2:route.name}'), {",
+            "    onFinish: () => reset('${3:password}'),",
+            "  });",
+            "};"
+        ],
+        "description": "Create an Inertia.js form"
+    },
+
+    "React useState Hook": {
+        "prefix": "useState",
+        "body": [
+            "const [${1:state}, set${1/(.*)/${1:/capitalize}/}] = useState<${2:type}>(${3:initialValue});"
+        ],
+        "description": "React useState hook"
+    },
+
+    "React useEffect Hook": {
+        "prefix": "useEffect",
+        "body": [
+            "useEffect(() => {",
+            "  ${1:// effect logic}",
+            "",
+            "  ${2:return () => {",
+            "    // cleanup",
+            "  };}",
+            "}, [${3:dependencies}]);"
+        ],
+        "description": "React useEffect hook"
+    },
+
+    "React Custom Hook": {
+        "prefix": "customhook",
+        "body": [
+            "import { useState, useEffect } from 'react';",
+            "",
+            "export const use${1:HookName} = (${2:parameters}) => {",
+            "  const [${3:state}, set${3/(.*)/${3:/capitalize}/}] = useState(${4:initialValue});",
+            "",
+            "  useEffect(() => {",
+            "    ${5:// hook logic}",
+            "  }, [${6:dependencies}]);",
+            "",
+            "  return ${7:{ state, setState }};",
+            "};"
+        ],
+        "description": "Create a custom React hook"
+    },
+
+    "TailwindCSS Container": {
+        "prefix": "container",
+        "body": [
+            "<div className=\"container mx-auto px-4\">",
+            "  ${1:<!-- Content -->}",
+            "</div>"
+        ],
+        "description": "TailwindCSS container"
+    },
+
+    "TailwindCSS Grid": {
+        "prefix": "grid",
+        "body": [
+            "<div className=\"grid grid-cols-${1:1} md:grid-cols-${2:2} lg:grid-cols-${3:3} gap-${4:4}\">",
+            "  ${5:<!-- Grid items -->}",
+            "</div>"
+        ],
+        "description": "TailwindCSS grid layout"
+    },
+
+    "TailwindCSS Flex": {
+        "prefix": "flex",
+        "body": [
+            "<div className=\"flex ${1:items-center} ${2:justify-center} ${3:space-x-4}\">",
+            "  ${4:<!-- Flex items -->}",
+            "</div>"
+        ],
+        "description": "TailwindCSS flex layout"
+    },
+
+    "TailwindCSS Card": {
+        "prefix": "card",
+        "body": [
+            "<div className=\"bg-white rounded-lg shadow-md p-6\">",
+            "  <h3 className=\"text-lg font-semibold mb-2\">${1:Card Title}</h3>",
+            "  <p className=\"text-gray-600\">${2:Card content}</p>",
+            "</div>"
+        ],
+        "description": "TailwindCSS card component"
+    },
+
+    "TailwindCSS Button": {
+        "prefix": "btn",
+        "body": [
+            "<button className=\"bg-${1:blue}-500 hover:bg-${1:blue}-700 text-white font-bold py-2 px-4 rounded${2: disabled:opacity-50}\" ${3:disabled={processing}}>",
+            "  ${4:Button Text}",
+            "</button>"
+        ],
+        "description": "TailwindCSS button"
+    },
+
+    "DaisyUI Button": {
+        "prefix": "daisybtn",
+        "body": [
+            "<button className=\"btn ${1|btn-primary,btn-secondary,btn-accent,btn-ghost,btn-link|}${2: btn-${3|sm,md,lg,xl|}}\"${4: disabled={processing}}>",
+            "  ${5:Button Text}",
+            "</button>"
+        ],
+        "description": "DaisyUI button component"
+    },
+
+    "DaisyUI Card": {
+        "prefix": "daisycard",
+        "body": [
+            "<div className=\"card ${1:w-96} bg-base-100 shadow-xl\">",
+            "  ${2:<figure><img src=\"${3:image-url}\" alt=\"${4:alt-text}\" /></figure>}",
+            "  <div className=\"card-body\">",
+            "    <h2 className=\"card-title\">${5:Card Title}</h2>",
+            "    <p>${6:Card description}</p>",
+            "    <div className=\"card-actions justify-end\">",
+            "      <button className=\"btn btn-primary\">${7:Action}</button>",
+            "    </div>",
+            "  </div>",
+            "</div>"
+        ],
+        "description": "DaisyUI card component"
+    },
+
+    "DaisyUI Modal": {
+        "prefix": "daisymodal",
+        "body": [
+            "<dialog id=\"${1:modal_id}\" className=\"modal\">",
+            "  <div className=\"modal-box\">",
+            "    <h3 className=\"font-bold text-lg\">${2:Modal Title}</h3>",
+            "    <p className=\"py-4\">${3:Modal content}</p>",
+            "    <div className=\"modal-action\">",
+            "      <form method=\"dialog\">",
+            "        <button className=\"btn\">${4:Close}</button>",
+            "      </form>",
+            "    </div>",
+            "  </div>",
+            "</dialog>"
+        ],
+        "description": "DaisyUI modal component"
+    },
+
+    "Axios GET Request": {
+        "prefix": "axiosget",
+        "body": [
+            "axios.get('${1:/api/endpoint}')",
+            "  .then(response => {",
+            "    ${2:console.log(response.data);}",
+            "  })",
+            "  .catch(error => {",
+            "    ${3:console.error(error);}",
+            "  });"
+        ],
+        "description": "Axios GET request"
+    },
+
+    "Axios POST Request": {
+        "prefix": "axiospost",
+        "body": [
+            "axios.post('${1:/api/endpoint}', {",
+            "  ${2:data: 'value'}",
+            "})",
+            "  .then(response => {",
+            "    ${3:console.log(response.data);}",
+            "  })",
+            "  .catch(error => {",
+            "    ${4:console.error(error);}",
+            "  });"
+        ],
+        "description": "Axios POST request"
+    },
+
+    "jQuery Document Ready": {
+        "prefix": "jqready",
+        "body": [
+            "$(document).ready(function() {",
+            "  ${1:// jQuery code here}",
+            "});"
+        ],
+        "description": "jQuery document ready"
+    },
+
+    "jQuery AJAX": {
+        "prefix": "jqajax",
+        "body": [
+            "$.ajax({",
+            "  url: '${1:/api/endpoint}',",
+            "  type: '${2|GET,POST,PUT,DELETE|}',",
+            "  data: {",
+            "    ${3:'key': 'value'}",
+            "  },",
+            "  success: function(response) {",
+            "    ${4:// success callback}",
+            "  },",
+            "  error: function(xhr, status, error) {",
+            "    ${5:// error callback}",
+            "  }",
+            "});"
+        ],
+        "description": "jQuery AJAX request"
+    },
+
+    "Vanilla JS Fetch": {
+        "prefix": "fetch",
+        "body": [
+            "fetch('${1:/api/endpoint}', {",
+            "  method: '${2|GET,POST,PUT,DELETE|}',",
+            "  headers: {",
+            "    'Content-Type': 'application/json',",
+            "    'X-CSRF-TOKEN': document.querySelector('meta[name=\"csrf-token\"]').getAttribute('content')",
+            "  },",
+            "  ${3:body: JSON.stringify({ data: 'value' })}",
+            "})",
+            ".then(response => response.json())",
+            ".then(data => {",
+            "  ${4:console.log(data);}",
+            "})",
+            ".catch(error => {",
+            "  ${5:console.error('Error:', error);}",
+            "});"
+        ],
+        "description": "Vanilla JavaScript fetch request"
+    },
+
+    "Console Log": {
+        "prefix": "cl",
+        "body": [
+            "console.log(${1:'${2:message}', }${3:variable});"
+        ],
+        "description": "Console log"
+    },
+
+    "Try Catch": {
+        "prefix": "try",
+        "body": [
+            "try {",
+            "  ${1:// code that may throw}",
+            "} catch (error) {",
+            "  ${2:console.error('Error:', error);}",
+            "}"
+        ],
+        "description": "Try-catch block"
+    },
+
+    "Arrow Function": {
+        "prefix": "af",
+        "body": [
+            "const ${1:functionName} = (${2:params}) => {",
+            "  ${3:// function body}",
+            "};"
+        ],
+        "description": "Arrow function"
+    },
+
+    "Async Arrow Function": {
+        "prefix": "aaf",
+        "body": [
+            "const ${1:functionName} = async (${2:params}) => {",
+            "  try {",
+            "    ${3:// async code}",
+            "  } catch (error) {",
+            "    ${4:console.error('Error:', error);}",
+            "  }",
+            "};"
+        ],
+        "description": "Async arrow function"
+    }
+}

@@ -1,0 +1,47 @@
+{
+  "folders": [
+    {
+      "path": "."
+    }
+  ],
+  "settings": {
+    "files.associations": {
+      "*.blade.php": "blade"
+    },
+    "emmet.includeLanguages": {
+      "blade": "html"
+    },
+    "blade.format.enable": true,
+    "php.suggest.basic": false,
+    "php.validate.enable": true,
+    "intelephense.files.exclude": [
+      "**/node_modules/**",
+      "**/vendor/**/Tests/**",
+      "**/vendor/**/tests/**"
+    ]
+  },
+  "extensions": {
+    "recommendations": [
+      "bmewburn.vscode-intelephense-client",
+      "esbenp.prettier-vscode",
+      "shufo.vscode-blade-formatter",
+      "onecentlin.laravel-blade",
+      "ryannaddy.laravel-artisan",
+      "codingyu.laravel-goto-view",
+      "bradlc.vscode-tailwindcss",
+      "formulahendry.auto-rename-tag",
+      "formulahendry.auto-close-tag",
+      "christian-kohler.path-intellisense",
+      "dbaeumer.vscode-eslint",
+      "mikestead.dotenv",
+      "zhuangtongfa.material-theme",
+      "pkief.material-icon-theme",
+      "xdebug.php-debug",
+      "eamodio.gitlens",
+      "usernamehw.errorlens",
+      "alefragnani.bookmarks",
+      "ms-vsliveshare.vsliveshare",
+      "ms-vscode-remote.remote-containers"
+    ]
+  }
+}

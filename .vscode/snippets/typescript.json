@@ -1,0 +1,274 @@
+{
+    "React Functional Component with TypeScript": {
+        "prefix": "rfc",
+        "body": [
+            "import React from 'react';",
+            "",
+            "interface ${1:ComponentName}Props {",
+            "  ${2:// props here}",
+            "}",
+            "",
+            "const ${1:ComponentName}: React.FC<${1:ComponentName}Props> = ({ ${3:props} }) => {",
+            "  return (",
+            "    <div>",
+            "      ${4:<!-- Component content -->}",
+            "    </div>",
+            "  );",
+            "};",
+            "",
+            "export default ${1:ComponentName};"
+        ],
+        "description": "Create a React functional component with TypeScript"
+    },
+
+    "Inertia Page Component TypeScript": {
+        "prefix": "inertia",
+        "body": [
+            "import React from 'react';",
+            "import { Head } from '@inertiajs/react';",
+            "import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';",
+            "import { PageProps } from '@/types';",
+            "",
+            "interface ${1:PageName}Props extends PageProps {",
+            "  ${2:// additional props}",
+            "}",
+            "",
+            "export default function ${1:PageName}({ auth, ${3:props} }: ${1:PageName}Props) {",
+            "  return (",
+            "    <AuthenticatedLayout",
+            "      user={auth.user}",
+            "      header={<h2 className=\"font-semibold text-xl text-gray-800 leading-tight\">${4:Page Title}</h2>}",
+            "    >",
+            "      <Head title=\"${4:Page Title}\" />",
+            "",
+            "      <div className=\"py-12\">",
+            "        <div className=\"max-w-7xl mx-auto sm:px-6 lg:px-8\">",
+            "          <div className=\"bg-white overflow-hidden shadow-sm sm:rounded-lg\">",
+            "            <div className=\"p-6 text-gray-900\">",
+            "              ${5:<!-- Page content -->}",
+            "            </div>",
+            "          </div>",
+            "        </div>",
+            "      </div>",
+            "    </AuthenticatedLayout>",
+            "  );",
+            "}"
+        ],
+        "description": "Create an Inertia.js page component with TypeScript"
+    },
+
+    "TypeScript Interface": {
+        "prefix": "interface",
+        "body": [
+            "interface ${1:InterfaceName} {",
+            "  ${2:property}: ${3:type};",
+            "}"
+        ],
+        "description": "Create a TypeScript interface"
+    },
+
+    "TypeScript Type": {
+        "prefix": "type",
+        "body": [
+            "type ${1:TypeName} = ${2:string | number};"
+        ],
+        "description": "Create a TypeScript type"
+    },
+
+    "TypeScript Enum": {
+        "prefix": "enum",
+        "body": [
+            "enum ${1:EnumName} {",
+            "  ${2:VALUE1} = '${3:value1}',",
+            "  ${4:VALUE2} = '${5:value2}',",
+            "}"
+        ],
+        "description": "Create a TypeScript enum"
+    },
+
+    "Typed Async Function": {
+        "prefix": "asyncfunc",
+        "body": [
+            "const ${1:functionName} = async (${2:params}: ${3:Type}): Promise<${4:ReturnType}> => {",
+            "  try {",
+            "    ${5:// async code}",
+            "    return ${6:result};",
+            "  } catch (error) {",
+            "    throw new Error(`Error in ${1:functionName}: ${error}`);",
+            "  }",
+            "};"
+        ],
+        "description": "Typed async function"
+    },
+
+    "API Response Type": {
+        "prefix": "apiresponse",
+        "body": [
+            "interface ${1:ApiResponse}<T = any> {",
+            "  data: T;",
+            "  message: string;",
+            "  status: 'success' | 'error';",
+            "  errors?: Record<string, string[]>;",
+            "}"
+        ],
+        "description": "API response type"
+    },
+
+    "Laravel Resource Type": {
+        "prefix": "resourcetype",
+        "body": [
+            "interface ${1:ResourceName} {",
+            "  id: number;",
+            "  ${2:field}: ${3:string};",
+            "  created_at: string;",
+            "  updated_at: string;",
+            "}"
+        ],
+        "description": "Laravel resource type"
+    },
+
+    "Form Data Type": {
+        "prefix": "formdata",
+        "body": [
+            "interface ${1:FormName}Data {",
+            "  ${2:field}: ${3:string};",
+            "}"
+        ],
+        "description": "Form data type"
+    },
+
+    "Inertia Form with Types": {
+        "prefix": "inertiaformtype",
+        "body": [
+            "import { useForm } from '@inertiajs/react';",
+            "",
+            "interface ${1:FormName}Data {",
+            "  ${2:field}: ${3:string};",
+            "}",
+            "",
+            "const { data, setData, post, processing, errors, reset } = useForm<${1:FormName}Data>({",
+            "  ${2:field}: '',",
+            "});",
+            "",
+            "const submit = (e: React.FormEvent<HTMLFormElement>) => {",
+            "  e.preventDefault();",
+            "  post(route('${4:route.name}'), {",
+            "    onFinish: () => reset(),",
+            "  });",
+            "};"
+        ],
+        "description": "Create a typed Inertia.js form"
+    },
+
+    "React Props with Children": {
+        "prefix": "propschildren",
+        "body": [
+            "interface ${1:ComponentName}Props {",
+            "  children: React.ReactNode;",
+            "  ${2:otherProp}?: ${3:string};",
+            "}"
+        ],
+        "description": "React props with children type"
+    },
+
+    "Event Handler Type": {
+        "prefix": "eventhandler",
+        "body": [
+            "const ${1:handleEvent} = (${2:e}: React.${3|MouseEvent,ChangeEvent,FormEvent|}<HTML${4|Button,Input,Form|}Element>) => {",
+            "  ${5:// event handler logic}",
+            "};"
+        ],
+        "description": "Typed event handler"
+    },
+
+    "Generic Component": {
+        "prefix": "genericcomponent",
+        "body": [
+            "interface ${1:ComponentName}Props<T> {",
+            "  data: T;",
+            "  onSelect: (item: T) => void;",
+            "}",
+            "",
+            "function ${1:ComponentName}<T>({ data, onSelect }: ${1:ComponentName}Props<T>) {",
+            "  return (",
+            "    <div>",
+            "      ${2:<!-- Component content -->}",
+            "    </div>",
+            "  );",
+            "}"
+        ],
+        "description": "Generic React component"
+    },
+
+    "Custom Hook with Types": {
+        "prefix": "customhooktype",
+        "body": [
+            "import { useState, useEffect } from 'react';",
+            "",
+            "interface Use${1:HookName}Return {",
+            "  ${2:data}: ${3:Type} | null;",
+            "  ${4:loading}: boolean;",
+            "  ${5:error}: string | null;",
+            "}",
+            "",
+            "export const use${1:HookName} = (${6:params}: ${7:Type}): Use${1:HookName}Return => {",
+            "  const [${2:data}, set${2/(.*)/${2:/capitalize}/}] = useState<${3:Type} | null>(null);",
+            "  const [${4:loading}, set${4/(.*)/${4:/capitalize}/}] = useState<boolean>(true);",
+            "  const [${5:error}, set${5/(.*)/${5:/capitalize}/}] = useState<string | null>(null);",
+            "",
+            "  useEffect(() => {",
+            "    ${8:// hook logic}",
+            "  }, [${9:dependencies}]);",
+            "",
+            "  return { ${2:data}, ${4:loading}, ${5:error} };",
+            "};"
+        ],
+        "description": "Create a typed custom React hook"
+    },
+
+    "Axios with Types": {
+        "prefix": "axiostypes",
+        "body": [
+            "interface ${1:ApiResponse} {",
+            "  ${2:data}: ${3:any};",
+            "  message: string;",
+            "}",
+            "",
+            "axios.${4|get,post,put,delete|}<${1:ApiResponse}>('${5:/api/endpoint}'${6:, data})",
+            "  .then((response) => {",
+            "    ${7:console.log(response.data);}",
+            "  })",
+            "  .catch((error: AxiosError) => {",
+            "    ${8:console.error(error);}",
+            "  });"
+        ],
+        "description": "Axios request with TypeScript types"
+    },
+
+    "Fetch with Types": {
+        "prefix": "fetchtypes",
+        "body": [
+            "interface ${1:ApiResponse} {",
+            "  ${2:data}: ${3:any};",
+            "  message: string;",
+            "}",
+            "",
+            "const fetchData = async (): Promise<${1:ApiResponse}> => {",
+            "  const response = await fetch('${4:/api/endpoint}', {",
+            "    method: '${5|GET,POST,PUT,DELETE|}',",
+            "    headers: {",
+            "      'Content-Type': 'application/json',",
+            "    },",
+            "    ${6:body: JSON.stringify(data),}",
+            "  });",
+            "",
+            "  if (!response.ok) {",
+            "    throw new Error(`HTTP error! status: ${response.status}`);",
+            "  }",
+            "",
+            "  return await response.json();",
+            "};"
+        ],
+        "description": "Typed fetch request"
+    }
+}
